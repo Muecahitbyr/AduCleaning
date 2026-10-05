@@ -1,0 +1,280 @@
+/* ==========================================================================
+   Basis: Design-Tokens, Reset, Typografie, Utilities
+   ========================================================================== */
+
+:root {
+  /* Marke (abgeleitet vom Logo) */
+  --navy-950: #030817;
+  --navy-900: #071233;
+  --blue-600: #1d4ed8;
+  --blue-500: #2b6cff;
+  --blue-400: #5b8dff;
+  --blue-300: #8fb4ff;
+  --accent: var(--blue-500);
+  --accent-hover: #1f5ae6;
+
+  /* Flächen */
+  --black: #000000;
+  --surface: #0a0b0f;
+  --surface-2: #121318;
+  --light: #f5f5f7;
+  --white: #ffffff;
+
+  /* Text */
+  --ink: #1d1d1f;
+  --ink-2: #424245;
+  --ink-3: #6e6e73;
+  --on-dark: #f5f5f7;
+  --on-dark-2: #a1a1a6;
+  --on-dark-3: #6e6e73;
+  --line: #d2d2d7;
+  --line-dark: rgba(255, 255, 255, 0.12);
+
+  --gradient-text: linear-gradient(100deg, #9cc0ff 0%, #4d86ff 45%, #a5d8ff 100%);
+
+  /* Typografie */
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Inter Variable', 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: clamp(20px, 4vw, 40px);
+  --radius-xl: 36px;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --nav-h: 56px;
+
+  /* Bewegung */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background: var(--black);
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+}
+
+/* Lenis (weiches Scrollen) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--on-dark);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.47;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: rgba(43, 108, 255, 0.35);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---- Utilities ---------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--ink);
+  transform: translateY(-200%);
+  transition: transform 0.2s;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* SplitText-Zeilen: Maske für das Hochfahren der Zeilen */
+.split-line {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+/* ---- Typografie --------------------------------------------------------- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--accent);
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow--light {
+  color: var(--blue-300);
+}
+
+.headline {
+  font-size: clamp(2.6rem, 6.4vw, 5.4rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.lead {
+  margin-top: 24px;
+  max-width: 34em;
+  color: var(--on-dark-2);
+  font-size: clamp(1.08rem, 1.55vw, 1.32rem);
+  line-height: 1.45;
+  letter-spacing: -0.016em;
+}
+
+.link {
+  color: var(--blue-400);
+}
+
+.link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- Sektionen ---------------------------------------------------------- */
+
+.section {
+  position: relative;
+  padding-block: clamp(110px, 15vw, 200px);
+}
+
+.section--black {
+  background: var(--black);
+}
+
+.section--dark {
+  background: var(--surface);
+}
+
+.section--light {
+  background: var(--light);
+  color: var(--ink);
+}
+
+.section--light .lead {
+  color: var(--ink-3);
+}
+
+.section--light .link {
+  color: var(--accent);
+}
+
+.section-head {
+  margin-bottom: clamp(56px, 8vw, 96px);
+}
+
+.section-head--center {
+  text-align: center;
+}
+
+.section-head--center .lead {
+  margin-inline: auto;
+}

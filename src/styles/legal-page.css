@@ -1,0 +1,7 @@
+/* Einstieg Rechtsseiten (Impressum, Datenschutz, AGB) */
+@import '@fontsource-variable/inter/index.css';
+@import './base.css';
+@import './components.css';
+@import './legal.css';
+@import './consent.css';
+@import './responsive.css';

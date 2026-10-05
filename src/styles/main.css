@@ -1,0 +1,8 @@
+/* Einstieg Startseite – wird direkt im <head> verlinkt (kein Aufblitzen ohne Styles) */
+@import '@fontsource-variable/inter/index.css';
+@import './base.css';
+@import './components.css';
+@import './sections.css';
+@import './consent.css';
+@import './interactive.css';
+@import './responsive.css';

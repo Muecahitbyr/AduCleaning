@@ -1,0 +1,263 @@
+/* ==========================================================================
+   Responsive Feinschliff: kleine Handys, Querformat, Tablets, große Monitore
+   ========================================================================== */
+
+/* Nie seitlich verschiebbar – auch nicht während Animationen */
+html,
+body {
+  overflow-x: clip;
+}
+
+/* Grid-Spalten dürfen schrumpfen (verhindert Überbreite durch lange Inhalte) */
+.insta > *,
+.faq > *,
+.contact__inner > *,
+.steps-layout > *,
+.audience > *,
+.calc > *,
+.footer__top > *,
+.step > * {
+  min-width: 0;
+}
+
+/* ---- Kleine Handys (≤ 380 px) ------------------------------------------- */
+
+@media (max-width: 380px) {
+  :root {
+    --gutter: 16px;
+  }
+
+  .hero__title {
+    font-size: 2.9rem;
+  }
+
+  .hero__eyebrow {
+    font-size: 13px;
+  }
+
+  .headline {
+    font-size: 2.3rem;
+  }
+
+  .btn--lg {
+    padding: 14px 22px;
+    font-size: 16px;
+  }
+
+  .tiles {
+    gap: 6px;
+  }
+
+  .tiles span {
+    padding: 14px 4px 12px;
+  }
+
+  .tiles small {
+    font-size: 11px;
+  }
+
+  .stepper output {
+    font-size: 24px;
+  }
+
+  .calc__price {
+    font-size: 2.3rem;
+  }
+
+  .quote {
+    padding: 20px;
+  }
+
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Niedrige Handy-Bildschirme ----------------------------------------- */
+
+@media (max-width: 640px) and (max-height: 720px) {
+  .hero__meta {
+    display: none;
+  }
+
+  .hero__content {
+    padding-bottom: 4vh;
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .hero__lead {
+    margin-top: 18px;
+    font-size: 1rem;
+  }
+
+  .hero__actions {
+    margin-top: 24px;
+  }
+
+  .btn--lg {
+    min-height: 48px;
+  }
+}
+
+/* ---- Handy im Querformat ------------------------------------------------ */
+
+@media (max-height: 540px) and (orientation: landscape) {
+  .hero {
+    min-height: 0;
+  }
+
+  .hero__title {
+    font-size: clamp(2.2rem, 15vh, 4.6rem);
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 10px;
+  }
+
+  .hero__lead,
+  .hero__meta {
+    display: none;
+  }
+
+  .hero__actions {
+    flex-direction: row;
+    max-width: none;
+    margin-top: 20px;
+  }
+
+  .detail__bg-title {
+    top: 8vh;
+    font-size: 24vh;
+  }
+
+  .detail__headline {
+    font-size: clamp(1.8rem, 11vh, 3.2rem);
+  }
+
+  .section {
+    padding-block: 88px;
+  }
+
+  .nav__sheet a {
+    padding: 8px 0;
+    font-size: 20px;
+  }
+
+  .steps-layout__head,
+  .faq .section-head,
+  .calc__result {
+    position: static;
+  }
+}
+
+/* Leistungen als Wisch-Karussell, wenn der Bildschirm zu niedrig zum Pinnen ist */
+@media (min-width: 768px) and (max-height: 559px) {
+  .services__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .services__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .services__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .svc {
+    width: 40vw;
+    scroll-snap-align: start;
+  }
+
+  .services__progress {
+    display: none;
+  }
+}
+
+/* ---- Tablets ------------------------------------------------------------ */
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .promise__grid {
+    gap: 40px 28px;
+  }
+
+  .insta__tile:nth-child(even) {
+    translate: 0 32px;
+  }
+}
+
+/* ---- Große Monitore ----------------------------------------------------- */
+
+@media (min-width: 1800px) {
+  :root {
+    --container: 1440px;
+    --nav-h: 60px;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .nav__links {
+    gap: 36px;
+    font-size: 15px;
+  }
+
+  .headline {
+    font-size: clamp(4.6rem, 4.4vw, 7rem);
+  }
+
+  .hero__title {
+    font-size: min(8.8vw, 12rem);
+  }
+
+  .hero__lead,
+  .lead {
+    font-size: 1.45rem;
+  }
+
+  .statement__text {
+    max-width: 1320px;
+    font-size: 4.8rem;
+  }
+
+  .detail__headline {
+    font-size: 6rem;
+  }
+
+  .svc {
+    width: clamp(270px, min(24vw, 44vh), 540px);
+  }
+
+  .svc h3 {
+    font-size: 30px;
+  }
+
+  .svc p {
+    font-size: 17px;
+  }
+
+  .marquee__track {
+    font-size: 8.4rem;
+  }
+
+  .promise__figure {
+    font-size: 6.4rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  :root {
+    --container: 1720px;
+  }
+
+  body {
+    font-size: 19px;
+  }
+}
